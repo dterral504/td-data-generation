@@ -19,6 +19,8 @@ import {
   ModalFooter
 } from "reactstrap";
 import "./App.css";
+import FieldForm from "./components/FieldForm";
+import FieldFormEx from "./components/FieldFormEx";
 
 class App extends Component {
   constructor(props) {
@@ -79,148 +81,7 @@ class App extends Component {
           </p>
         </Jumbotron>
 
-        <Container>
-          <Form>
-            <Row form>
-              <Col md={6}>
-                <FormGroup>
-                  <Label>Field Name</Label>
-                  <Input type="text" name="name" id={"fieldName0"} />
-                </FormGroup>
-              </Col>
-              <Col md={2}>
-                <FormGroup>
-                  <Label>Field Type</Label>
-                  <Dropdown
-                    isOpen={this.state.FieldDropdownOpen}
-                    toggle={this.field_dropdown_toggle}
-                  >
-                    <DropdownToggle caret>Select a datatype</DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>Integer</DropdownItem>
-                      <DropdownItem>String</DropdownItem>
-                      <DropdownItem>Decimal</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </FormGroup>
-              </Col>
-              <Col md={2}>
-                <FormGroup>
-                  <Label>More Options</Label>
-                  <Button color="primary" onClick={this.modal_toggle}>
-                    Options
-                  </Button>
-                  <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.modal_toggle}
-                    className={this.props.className}
-                  >
-                    <ModalHeader toggle={this.modal_toggle}>
-                      Options
-                    </ModalHeader>
-                    <ModalBody>
-                      Options based on the selected datatype go here....
-                    </ModalBody>
-                    <ModalFooter>
-                      <Button color="primary" onClick={this.modal_toggle}>
-                        Confirm Options
-                      </Button>
-                    </ModalFooter>
-                  </Modal>
-                </FormGroup>
-              </Col>
-            </Row>
-
-            {this.state.inputs.map(input => (
-              <Row form>
-                <Col md={6}>
-                  <FormGroup>
-                    <Input type="text" name="name" id={"fieldName" + input} />
-                  </FormGroup>
-                </Col>
-                <Col md={2}>
-                  <FormGroup>
-                    <Dropdown
-                      isOpen={this.state.FieldDropdownOpen}
-                      toggle={this.field_dropdown_toggle}
-                    >
-                      <DropdownToggle caret>Select a datatype</DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem>Integer</DropdownItem>
-                        <DropdownItem>String</DropdownItem>
-                        <DropdownItem>Decimal</DropdownItem>
-                      </DropdownMenu>
-                    </Dropdown>
-                  </FormGroup>
-                </Col>
-                <Col md={2}>
-                  <FormGroup>
-                    <Button color="primary" onClick={this.modal_toggle}>
-                      Options
-                    </Button>
-                    <Modal
-                      isOpen={this.state.modal}
-                      toggle={this.modal_toggle}
-                      className={this.props.className}
-                    >
-                      <ModalHeader toggle={this.modal_toggle}>
-                        Options
-                      </ModalHeader>
-                      <ModalBody>
-                        Options based on the selected datatype go here....
-                      </ModalBody>
-                      <ModalFooter>
-                        <Button color="primary" onClick={this.modal_toggle}>
-                          Confirm Options
-                        </Button>
-                      </ModalFooter>
-                    </Modal>
-                  </FormGroup>
-                </Col>
-              </Row>
-            ))}
-          </Form>
-          <Button onClick={() => this.appendInput()}>Add Field</Button>
-          {/* --------------------------------------------------------------------------------- */}
-          <hr className="my-2" />
-          {/* --------------------------------------------------------------------------------- */}
-          <Form>
-            <Row form>
-              <Col md={2}>
-                <FormGroup>
-                  <Input
-                    type="text"
-                    name="numRows"
-                    id="numRows"
-                    placeholder="Number of Rows"
-                  />
-                </FormGroup>
-              </Col>
-              <Col md={2}>
-                <FormGroup>
-                  <Dropdown
-                    isOpen={this.state.FileDropdownOpen}
-                    toggle={this.file_dropdown_toggle}
-                  >
-                    <DropdownToggle caret>File Type</DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem>CSV</DropdownItem>
-                      <DropdownItem>Excel</DropdownItem>
-                      <DropdownItem>JSON</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </FormGroup>
-              </Col>
-              <Col md={2}>
-                <FormGroup>
-                  <Button color="primary" onClick={this.generate_data()}>
-                    Generate Data
-                  </Button>
-                </FormGroup>
-              </Col>
-            </Row>
-          </Form>
-        </Container>
+        <FieldFormEx />
       </div>
     );
   }
