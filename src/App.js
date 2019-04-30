@@ -19,6 +19,7 @@ import {
   ModalFooter
 } from "reactstrap";
 import "./App.css";
+// import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,14 @@ class App extends Component {
       modal: false
     };
   }
+
+  // getdata(){
+  //   axios.get('http://localhost:5000/api/generate').then(res => {
+  //     const posts = res.data;
+  //     console.log(posts);
+  //   });
+
+  // }
 
   modal_toggle() {
     this.setState(prevState => ({
@@ -213,7 +222,7 @@ class App extends Component {
               </Col>
               <Col md={2}>
                 <FormGroup>
-                  <Button color="primary" onClick={this.generate_data()}>
+                  <Button color="primary" >
                     Generate Data
                   </Button>
                 </FormGroup>
